@@ -1,0 +1,87 @@
+{
+    "intro": "Hi, I'm Nathaniel Hughes and this is my Portfolio!",
+    "cv": {
+      "name": "Nathaniel Luke Hughes",
+      "age": 20,
+      "dob": "2003-11-25T09:00:00.000Z",
+      "skills": [
+        "Fast Learner",
+        "Hard Working",
+        "Problem Solver"
+      ],
+      "education": {
+        "gcse": {
+          "school": "Clitheroe Royal Grammar School",
+          "board": "AQA",
+          "results": {
+            "mathematics": 9,
+            "physics": 9,
+            "chemistry": 9,
+            "geography": 8,
+            "biology": 8,
+            "computer_science": 9,
+            "design_and_technology": 8,
+            "german": 5,
+            "english_language": 7,
+            "english_literature": 6
+          }
+        },
+        "alevel": {
+          "school": "Clitheroe Royal Grammar School Sixthform",
+          "board": "AQA",
+          "results": {
+            "mathematics": "A*",
+            "further_mathematics": "A*",
+            "computer_science": "A*",
+            "physics": "A*"
+          }
+        },
+        "university": {
+          "school": "Durham University",
+          "board": "N/A",
+          "results": {}
+        }
+      },
+      "work-experience" : [
+      {
+        "company": "AMRC North West",
+        "title": "Assistant Project Engineer",
+        "duration": "9 Months",
+        "part-time": false
+      },
+      {
+        "company": "Durham Univeristy Spacefight Society",
+        "title": "Website Team",
+        "duration": "2 Months",
+        "part-time": true
+      },
+      {
+        "company": "Halilit",
+        "title": "Warehouse Assistant",
+        "duration": "1 Year",
+        "part-time": true
+      }
+    ],
+      "hobbies": [
+        "Table Tennis",
+        "Ultimate Frisbee",
+        "Basketball",
+        "Programming",
+        "Video Games",
+        "Badminton",
+        "Calisthenics"
+      ]
+      
+    },
+    "projects": [
+      {
+        "raycaster": {
+          "title": "Ascii Raycaster",
+          "description": "A raycasting engine made with c#",
+          "links": ["https://www.youtube.com/watch?v=xW8skO7MFYw", "https://lodev.org/cgtutor/raycasting.html"],
+          "images": [],
+          "content": ".txt"
+        }
+      }
+    ]
+  }
