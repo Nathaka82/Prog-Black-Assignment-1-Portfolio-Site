@@ -20,17 +20,17 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Projects</a>
+                <button id="projects_button" class="nav-link">Projects</button>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   CV
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Skills</a></li>
-                  <li><a class="dropdown-item" href="#">Work Experience</a></li>
-                  <li><a class="dropdown-item" href="#">Education</a></li>
-                  <li><a class="dropdown-item" href="#">Hobbies</a></li>
+                  <li><button id="skills_button" class="dropdown-item" >Skills</button></li>
+                  <li><button id="work_experience_button" class="dropdown-item" >Work Experience</button></li>
+                  <li><button id="education_button" class="dropdown-item" >Education</button></li>
+                  <li><button id="hobbies_button" class="dropdown-item" >Hobbies</button></li>
                 </ul>
               </li>
             </ul>
@@ -45,8 +45,8 @@
     <div class="container-fluid">
         <!-- Title -->
         <section id="title">
-            <h1>Nathaniel's Portfolio</h1>
-            <div id="content"></div>
+            <h1 id="title_text">Nathaniel's Portfolio</h1>
+            <div id="content" class="container-fluid"></div>
         </section>
     </div>
     <script src="index.js"></script>

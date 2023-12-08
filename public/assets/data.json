@@ -9,8 +9,9 @@
         "Hard Working",
         "Problem Solver"
       ],
-      "education": {
-        "gcse": {
+      "education": [
+        {
+          "level": "GCSE",
           "school": "Clitheroe Royal Grammar School",
           "board": "AQA",
           "results": {
@@ -26,7 +27,8 @@
             "english_literature": 6
           }
         },
-        "alevel": {
+        {
+          "level": "A-Level",
           "school": "Clitheroe Royal Grammar School Sixthform",
           "board": "AQA",
           "results": {
@@ -36,13 +38,14 @@
             "physics": "A*"
           }
         },
-        "university": {
+        {
+          "level": "University",
           "school": "Durham University",
           "board": "N/A",
           "results": {}
         }
-      },
-      "work-experience" : [
+      ],
+      "work_experience" : [
       {
         "company": "AMRC North West",
         "title": "Assistant Project Engineer",
@@ -71,17 +74,21 @@
         "Badminton",
         "Calisthenics"
       ]
-      
     },
     "projects": [
       {
-        "raycaster": {
-          "title": "Ascii Raycaster",
-          "description": "A raycasting engine made with c#",
-          "links": ["https://www.youtube.com/watch?v=xW8skO7MFYw", "https://lodev.org/cgtutor/raycasting.html"],
-          "images": [],
-          "content": ".txt"
-        }
+        "title": "Ascii Raycaster",
+        "description": "A raycasting engine made with c#",
+        "links": ["https://www.youtube.com/watch?v=xW8skO7MFYw", "https://lodev.org/cgtutor/raycasting.html"],
+        "images": [],
+        "content": ".txt"
+      },
+      {
+        "title": "Infini Train",
+        "description": "An infinite roguelike game made with Unity for Durhack 2023.",
+        "links": ["https://durhack.com/", "https://devpost.com/software/infini-train"],
+        "images": [],
+        "content": ".txt"
       }
     ]
   }
