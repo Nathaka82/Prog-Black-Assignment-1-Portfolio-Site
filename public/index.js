@@ -11,6 +11,7 @@ const skills_button = document.getElementById("skills_button");
 const education_button = document.getElementById("education_button");
 const work_experience_button = document.getElementById("work_experience_button");
 const hobbies_button = document.getElementById("hobbies_button");
+const contact_button = document.getElementById("contact_button");
 
 const projects_button = document.getElementById("projects_button");
 
@@ -28,12 +29,12 @@ projects_button.addEventListener("click", function(){
     .then(body => {
        document.getElementById('title_text').innerText = "Projects:";
        const projects = JSON.parse(body)
-       document.getElementById('content').replaceChildren();
+       document.getElementById('content').innerText = body;
     })
 })
 
 skills_button.addEventListener("click", function(){
-    fetch('http://127.0.0.1:8080/skills')
+    fetch('http://127.0.0.1:8080/cv/skills')
     .then(response => response.text())
     .then(body => {
        document.getElementById('title_text').innerText = "CV: Skills";
@@ -49,7 +50,7 @@ skills_button.addEventListener("click", function(){
 })
 
 education_button.addEventListener("click", function(){
-    fetch('http://127.0.0.1:8080/education')
+    fetch('http://127.0.0.1:8080/cv/education')
     .then(response => response.text())
     .then(body => {
        document.getElementById('title_text').innerText = "CV: Education";
@@ -74,7 +75,7 @@ education_button.addEventListener("click", function(){
 })
 
 work_experience_button.addEventListener("click", function(){
-    fetch('http://127.0.0.1:8080/work_experience')
+    fetch('http://127.0.0.1:8080/cv/work_experience')
     .then(response => response.text())
     .then(body => {
        document.getElementById('title_text').innerText = "CV: Work Experience";
@@ -93,7 +94,7 @@ work_experience_button.addEventListener("click", function(){
 })
 
 hobbies_button.addEventListener("click", function(){
-    fetch('http://127.0.0.1:8080/hobbies')
+    fetch('http://127.0.0.1:8080/cv/hobbies')
     .then(response => response.text())
     .then(body => {
        document.getElementById('title_text').innerText = "CV: Hobbies";
@@ -105,5 +106,23 @@ hobbies_button.addEventListener("click", function(){
             hobbies_list.appendChild(hobby_element);
        });
       document.getElementById('content').replaceChildren(hobbies_list);
+    })
+})
+
+contact_button.addEventListener("click", function(){
+    fetch('http://127.0.0.1:8080/cv/contact')
+    .then(response => response.text())
+    .then(body => {
+       document.getElementById('title_text').innerText = "CV: Contact";
+       const info = JSON.parse(body);
+       let info_list = document.createElement("ul");
+       for(var mode in info){
+            let name = mode.replaceAll("_", " ");
+            name = name[0].toUpperCase() + name.substring(1);
+            let info_element = document.createElement("li");
+            info_element.innerText = `${name}: ${info[mode]}`
+            info_list.appendChild(info_element);
+       }
+      document.getElementById('content').replaceChildren(info_list);
     })
 })

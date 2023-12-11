@@ -13,20 +13,24 @@ app.get('/projects', function(req, resp){
     resp.send(data["projects"])
 })
 
-app.get('/skills', function(req, resp){
+app.get('/cv/skills', function(req, resp){
     resp.send(data.cv.skills)
 })
 
-app.get('/education', function(req, resp){
+app.get('/cv/education', function(req, resp){
     resp.send(data.cv.education);
 })
 
-app.get('/work_experience', function(req, resp){
+app.get('/cv/work_experience', function(req, resp){
     resp.send(data["cv"]["work_experience"])
 })
 
-app.get('/hobbies', function(req, resp){
+app.get('/cv/hobbies', function(req, resp){
     resp.send(data["cv"]["hobbies"])
+})
+
+app.get('/cv/contact', function(req, resp){
+    resp.send(data["cv"]["contact"])
 })
 
 app.listen(8080)
