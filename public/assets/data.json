@@ -81,17 +81,21 @@
     },
     "projects": [
       {
+        "id": 0,
         "title": "Ascii Raycaster",
         "description": "A raycasting engine made with c#",
+        "github": "https://github.com/Nathaka82",
         "links": ["https://www.youtube.com/watch?v=xW8skO7MFYw", "https://lodev.org/cgtutor/raycasting.html"],
-        "images": [],
+        "images": ["./assets/images/ascii_card.png"],
         "content": ".txt"
       },
       {
+        "id": 1,
         "title": "Infini Train",
         "description": "An infinite roguelike game made with Unity for Durhack 2023.",
+        "github": "https://github.com/Nathaka82/Durhack-2023",
         "links": ["https://durhack.com/", "https://devpost.com/software/infini-train"],
-        "images": [],
+        "images": ["./assets/images/infini_card.png"],
         "content": ".txt"
       }
     ]

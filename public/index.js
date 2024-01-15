@@ -1,12 +1,5 @@
-// window.addEventListener('click', function(event){
-//     fetch('http://127.0.0.1:8080/list')
-//      .then(response => response.text())
-//      .then(body =>
-//         document.getElementById('content').innerHTML=body)
-//   });
-
-
 const navbar_brand = document.getElementById("navbar-brand");
+const home_button = document.getElementById("home_button");
 const skills_button = document.getElementById("skills_button");
 const education_button = document.getElementById("education_button");
 const work_experience_button = document.getElementById("work_experience_button");
@@ -23,13 +16,53 @@ navbar_brand.addEventListener("click", function(){
        document.getElementById('content').innerHTML=body})
 })
 
+home_button.addEventListener("click", function(){
+    fetch('http://127.0.0.1:8080/intro')
+    .then(response => response.text())
+    .then(body => {
+       document.getElementById('title_text').innerText = "Nathaniel's Portfolio";
+       document.getElementById('content').innerHTML=body})
+})
+
 projects_button.addEventListener("click", function(){
     fetch('http://127.0.0.1:8080/projects')
     .then(response => response.text())
     .then(body => {
        document.getElementById('title_text').innerText = "Projects:";
        const projects = JSON.parse(body)
+       let card_holder = document.createElement("div");
+       card_holder.setAttribute("id", "card_holder");
+       card_holder.setAttribute("class","row")
        document.getElementById('content').innerText = body;
+       projects.forEach(project => {
+        let card = document.createElement("div");
+        card.setAttribute("class", "card col-sm-4");
+        card.setAttribute("style", "width: 18rem;");
+        card.innerHTML = `
+            <img class="card-img-top" src="${project.images[0]}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">${project.title}</h5>
+                <p class="card-text" style="height: 100px; width: 100%; overflow: hidden;">${project.description}</p>
+                <a href="${project.github}" class="btn btn-primary" style="width:40%">Repo</a>
+                <a href="/edit?id=${project.id}" class="btn btn-primary" style="width:40%">Edit</a>
+            </div>`
+        card_holder.appendChild(card);
+       });
+
+       let card = document.createElement("div");
+       card.setAttribute("class", "card col-sm-4");
+       card.setAttribute("style", "width: 18rem;");
+       card.innerHTML = `
+           <img class="card-img-top" src="./assets/images/new_project_card.png" alt="Card image cap">
+           <div class="card-body" style="text-align:center">
+               <h5 class="card-title">New Project</h5>
+               <br>
+               <br>
+               <a href="#exampleModal" class="btn btn-primary" style="background-color: green" data-bs-toggle="modal">Create</a>
+           </div>`
+       card_holder.appendChild(card);
+
+       document.getElementById('content').replaceChildren(card_holder);
     })
 })
 
