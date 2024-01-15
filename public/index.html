@@ -55,18 +55,34 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">New Project</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form>
-                      
+                    <form action="/projects/create" method="post">
+                      <div class="mb-3">
+                        <label for="project_title" class="form-label">Project Title</label>
+                        <input name="title" type="text" class="form-control" id="project_title" aria-describedby="project title" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="project_description" class="form-label">Description</label>
+                        <input name="description" type="text" class="form-control" id="project_description">
+                        <div id="description_help" class="form-text">A short description of the project</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="github_link" class="form-label">Github</label>
+                        <input name="github" type="url" placeholder="https://github.com/USER/REPOSITORY" class="form-control" id="github_link">
+                        <div id="github_help" class="form-text">Link to the projects Github Repostitory</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="cover_image" class="form-label">Cover Image</label>
+                        <input name="images" type="file" class="form-control" id="cover_image">
+                        <div id="cover_image_help" class="form-text">A screenshot of your project. (286x180)</div>
+                      </div>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" id="save_project_button" class="btn btn-primary">Save Project</button>
                     </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="save_project_button" class="btn btn-primary">Save Project</button>
                   </div>
                 </div>
               </div>

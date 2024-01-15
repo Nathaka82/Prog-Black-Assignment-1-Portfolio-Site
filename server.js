@@ -4,6 +4,7 @@ const app = express()
 const data = require('./public/assets/data.json')
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/intro', function(req, resp){
     resp.send(data["intro"])
@@ -33,6 +34,17 @@ app.get('/cv/contact', function(req, resp){
     resp.send(data["cv"]["contact"])
 })
 
-//app.post("/project/create")
+app.post("/projects/create", function(req, resp){
+    project = {
+        "id": data["projects"].slice(-1)[0].id + 1,
+        "title": req.body.title,
+        "description": req.body.description,
+        "github": req.body.github,
+        "links": [],
+        "images": ["req.body.images"],
+        "content": ".txt"
+    };
+    data["projects"].push(project);
+})
 
 app.listen(8080) 
