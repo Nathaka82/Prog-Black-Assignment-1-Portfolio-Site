@@ -45,7 +45,7 @@ app.post("/projects/create", function(req, resp){
         "content": ".txt"
     };
     data["projects"].push(project);
-    resp.end();
+    resp.sendStatus(200);
 })
 
 app.listen(8080) 
