@@ -1,11 +1,3 @@
-const navbar_brand = document.getElementById("navbar-brand");
-const home_button = document.getElementById("home_button");
-const skills_button = document.getElementById("skills_button");
-const education_button = document.getElementById("education_button");
-const work_experience_button = document.getElementById("work_experience_button");
-const hobbies_button = document.getElementById("hobbies_button");
-const contact_button = document.getElementById("contact_button");
-const projects_button = document.getElementById("projects_button");
 const project_form = document.getElementById("project_form");
 
 project_form.addEventListener("submit", async (event) => {
@@ -170,19 +162,3 @@ function RenderContact(){
        document.getElementById('content').replaceChildren(info_list);
     })
 }
-
-navbar_brand.addEventListener("click", RenderHome)
-
-home_button.addEventListener("click", RenderHome)
-
-projects_button.addEventListener("click", RenderProjects)
-
-skills_button.addEventListener("click", RenderSkills)
-
-education_button.addEventListener("click", RenderEducation)
-
-work_experience_button.addEventListener("click", RenderWorkExperience)
-
-hobbies_button.addEventListener("click", RenderHobbies)
-
-contact_button.addEventListener("click", RenderContact)

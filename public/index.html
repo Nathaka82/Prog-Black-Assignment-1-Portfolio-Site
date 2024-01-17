@@ -11,28 +11,28 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <button id="navbar-brand" class="navbar-brand nav-link">NH</button>
+          <button id="navbar-brand" class="navbar-brand nav-link" onclick="RenderHome()">NH</button>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <button id="home_button" class="nav-link">Home</a>
+                <button id="home_button" class="nav-link" onclick="RenderHome()">Home</a>
               </li>
               <li class="nav-item">
-                <button id="projects_button" class="nav-link">Projects</button>
+                <button id="projects_button" class="nav-link" onclick="RenderProjects()">Projects</button>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   CV
                 </a>
                 <ul class="dropdown-menu">
-                  <li><button id="skills_button" class="dropdown-item" >Skills</button></li>
-                  <li><button id="work_experience_button" class="dropdown-item" >Work Experience</button></li>
-                  <li><button id="education_button" class="dropdown-item" >Education</button></li>
-                  <li><button id="hobbies_button" class="dropdown-item" >Hobbies</button></li>
-                  <li><button id="contact_button" class="dropdown-item" >Contact</button></li>
+                  <li><button id="skills_button" class="dropdown-item" onclick="RenderSkills()">Skills</button></li>
+                  <li><button id="work_experience_button" class="dropdown-item" onclick="RenderWorkExperience()">Work Experience</button></li>
+                  <li><button id="education_button" class="dropdown-item" onclick="RenderEducation()">Education</button></li>
+                  <li><button id="hobbies_button" class="dropdown-item" onclick="RenderHobbies()">Hobbies</button></li>
+                  <li><button id="contact_button" class="dropdown-item" onclick="RenderContact()">Contact</button></li>
                 </ul>
               </li>
             </ul>
