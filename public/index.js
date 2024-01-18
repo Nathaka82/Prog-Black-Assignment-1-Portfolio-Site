@@ -4,8 +4,7 @@ project_form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(project_form);
     const d = new URLSearchParams(formData).toString();
-    const dataJson = JSON.stringify(Object.fromEntries(formData.entries()));
-    console.log(dataJson);
+    console.log(d);
 
     const response = await fetch("http://127.0.0.1:8080/projects/create", {
     method: "POST",

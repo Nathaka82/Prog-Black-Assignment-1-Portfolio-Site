@@ -41,7 +41,7 @@ app.post("/projects/create", function(req, resp){
         "description": req.body.description,
         "github": req.body.github,
         "links": [],
-        "images": ["req.body.images"],
+        "images": [`./assets/images/StockBackgrounds/${Math.floor(Math.random() * 5) + 1}.jpg`],
         "content": ".txt"
     };
     data["projects"].push(project);
