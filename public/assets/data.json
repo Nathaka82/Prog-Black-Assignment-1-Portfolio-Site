@@ -1,5 +1,5 @@
 {
-    "intro": "Hi, I'm Nathaniel Hughes and this is my Portfolio!",
+    "intro": "Hi, my name is Nathaniel Hughes, I am a 20 year old student currently studying Computer Science at Durham University. We were tasked to create a single page website for some coursework so I decided to make myself a website to host my CV & portfolio.",
     "cv": {
       "name": "Nathaniel Luke Hughes",
       "age": 20,
@@ -87,7 +87,8 @@
         "github": "https://github.com/Nathaka82",
         "links": ["https://www.youtube.com/watch?v=xW8skO7MFYw", "https://lodev.org/cgtutor/raycasting.html"],
         "images": ["./assets/images/ascii_card.png"],
-        "content": ".txt"
+        "content": ".txt",
+        "tags": ["c#", "console application", "video game", "visual studio"]
       },
       {
         "id": 1,
@@ -96,7 +97,8 @@
         "github": "https://github.com/Nathaka82/Durhack-2023",
         "links": ["https://durhack.com/", "https://devpost.com/software/infini-train"],
         "images": ["./assets/images/infini_card.png"],
-        "content": ".txt"
+        "content": ".txt",
+        "tags": ["unity", "c#", "video game", "gamejam", "durhack", "24 hours"]
       }
     ]
   }

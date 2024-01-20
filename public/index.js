@@ -1,33 +1,74 @@
+// MULTER
+
 const project_form = document.getElementById("project_form");
 
+// https://github.com/stevenaeola/progblack_2324/blob/main/gordonramsay/client/fact-submit.js
 project_form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(project_form);
-    const d = new URLSearchParams(formData).toString();
-    console.log(d);
 
-    const response = await fetch("http://127.0.0.1:8080/projects/create", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    body: d
+    // Got URLSearchParams from ChatGPT
+    const d = new URLSearchParams(formData).toString();
+
+    await fetch("http://127.0.0.1:8080/projects/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: d
     });
 
     RenderProjects();
 })
+
+function SearchProjects(){
+    
+    RenderProjects(document.getElementById('project_search').value.toString());
+}
 
 function RenderHome(){
     fetch('http://127.0.0.1:8080/intro')
     .then(response => response.text())
     .then(body => {
         document.getElementById('title_text').innerText = "Nathaniel's Portfolio";
-        document.getElementById('content').innerHTML=body;
+        document.getElementById('content').innerHTML=`<p style="width:50%; text-align:center; margin:auto">${body}</p>`;
     })
 }
 
-function RenderProjects(){
-    fetch('http://127.0.0.1:8080/projects')
+function RenderProject(id){
+    fetch(`http://127.0.0.1:8080/projects/project?id=${id}`)
+    .then(response => response.text())
+    .then(body => {
+        const project = JSON.parse(body)
+        document.getElementById('title_text').innerText = "Projects:";
+        const content = document.createElement("div");
+        const images = document.createElement("div");
+        const row = document.createElement("div");
+        content.setAttribute("class", "col-lg-6")
+        images.setAttribute("class", "col-lg-6")
+        row.setAttribute("class", "row")
+        let tags = ""
+        project.tags.forEach(tag => {
+            tags += `<span class="badge text-bg-secondary">${tag}</span>\n`
+        })
+        content.innerHTML = 
+        `
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <br>
+            ${tags}
+        `
+        project.images.forEach(image => {
+            images.innerHTML += `<img src=${image} alt="project image" style="margin:auto; padding:5px; max-width: 100%; height: auto;"/>`
+        })
+        row.appendChild(content);
+        row.appendChild(images);
+        document.getElementById('content').replaceChildren(row);
+    })
+}
+
+function RenderProjects(search = -1){
+    fetch(encodeURIComponent(`http://127.0.0.1:8080/projects/list?search=${search}`))
     .then(response => response.text())
     .then(body => {
         document.getElementById('title_text').innerText = "Projects:";
@@ -39,14 +80,22 @@ function RenderProjects(){
     projects.forEach(project => {
     let card = document.createElement("div");
     card.setAttribute("class", "card col-sm-4");
-    card.setAttribute("style", "height: 26rem; width: 18rem; margin: 5px auto;");
+    card.setAttribute("style", "height: 27rem; width: 18rem; margin: 5px auto;");
+    let tags = ""
+    project.tags.forEach(tag => {
+        tags += `<span class="badge text-bg-secondary">${tag}</span>\n`
+    })
     card.innerHTML = `
         <img class="card-img-top" src="${project.images[0]}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">${project.title}</h5>
             <p class="card-text" style="height: 100px; width: 100%; overflow: hidden;">${project.description}</p>
+            <a onclick="RenderProject(${project.id})" class="btn btn-primary" style="width:40%">Open</a>
             <a href="${project.github}" class="btn btn-primary" style="width:40%">Repo</a>
-            <a href="/edit?id=${project.id}" class="btn btn-primary" style="width:40%">Edit</a>
+            <br>
+            <div class="hide-scroll" style="height: 50px; width:100%; overflow-x: auto; white-space: nowrap;">
+                ${tags}
+            </div>
         </div>`
     card_holder.appendChild(card);
     });
@@ -161,3 +210,6 @@ function RenderContact(){
        document.getElementById('content').replaceChildren(info_list);
     })
 }
+
+// Set homepage to show intro text
+RenderHome();
