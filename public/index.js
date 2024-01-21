@@ -22,11 +22,11 @@ project_form.addEventListener("submit", async (event) => {
 })
 
 function SearchProjects(){
-    
     RenderProjects(document.getElementById('project_search').value.toString());
 }
 
 function RenderHome(){
+    ChangeFavicon("./assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/intro')
     .then(response => response.text())
     .then(body => {
@@ -39,17 +39,18 @@ function RenderProject(id){
     fetch(`http://127.0.0.1:8080/projects/project?id=${id}`)
     .then(response => response.text())
     .then(body => {
-        const project = JSON.parse(body)
+        const project = JSON.parse(body);
+        ChangeFavicon(project.images[0]);
         document.getElementById('title_text').innerText = "Projects:";
         const content = document.createElement("div");
         const images = document.createElement("div");
         const row = document.createElement("div");
-        content.setAttribute("class", "col-lg-6")
-        images.setAttribute("class", "col-lg-6")
-        row.setAttribute("class", "row")
-        let tags = ""
+        content.setAttribute("class", "col-lg-6");
+        images.setAttribute("class", "col-lg-6");
+        row.setAttribute("class", "row");
+        let tags = "";
         project.tags.forEach(tag => {
-            tags += `<span class="badge text-bg-secondary">${tag}</span>\n`
+            tags += `<span class="badge text-bg-secondary">${tag}</span>\n`;
         })
         content.innerHTML = 
         `
@@ -57,10 +58,10 @@ function RenderProject(id){
             <p>${project.description}</p>
             <br>
             ${tags}
-        `
+        `;
         project.images.forEach(image => {
-            images.innerHTML += `<img src=${image} alt="project image" style="margin:auto; padding:5px; max-width: 100%; height: auto;"/>`
-        })
+            images.innerHTML += `<img src=${image} alt="project image" style="margin:auto; padding:5px; max-width: 100%; height: auto;"/>`;
+        });
         row.appendChild(content);
         row.appendChild(images);
         document.getElementById('content').replaceChildren(row);
@@ -68,7 +69,8 @@ function RenderProject(id){
 }
 
 function RenderProjects(search = -1){
-    fetch(encodeURIComponent(`http://127.0.0.1:8080/projects/list?search=${search}`))
+    ChangeFavicon("./assets/images/favicon.ico");
+    fetch(`http://127.0.0.1:8080/projects/list?search=${encodeURIComponent(search)}`)
     .then(response => response.text())
     .then(body => {
         document.getElementById('title_text').innerText = "Projects:";
@@ -85,13 +87,14 @@ function RenderProjects(search = -1){
     project.tags.forEach(tag => {
         tags += `<span class="badge text-bg-secondary">${tag}</span>\n`
     })
+    let githubLink = project.github != "" ? `<a href="${project.github}" class="btn btn-primary" style="width:40%">Github</a>` : ""
     card.innerHTML = `
         <img class="card-img-top" src="${project.images[0]}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">${project.title}</h5>
             <p class="card-text" style="height: 100px; width: 100%; overflow: hidden;">${project.description}</p>
             <a onclick="RenderProject(${project.id})" class="btn btn-primary" style="width:40%">Open</a>
-            <a href="${project.github}" class="btn btn-primary" style="width:40%">Repo</a>
+            ${githubLink}
             <br>
             <div class="hide-scroll" style="height: 50px; width:100%; overflow-x: auto; white-space: nowrap;">
                 ${tags}
@@ -118,6 +121,7 @@ function RenderProjects(search = -1){
 }
 
 function RenderSkills(){
+    ChangeFavicon("./assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/skills')
     .then(response => response.text())
     .then(body => {
@@ -134,6 +138,7 @@ function RenderSkills(){
 }
 
 function RenderEducation(){
+    ChangeFavicon("./assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/education')
     .then(response => response.text())
     .then(body => {
@@ -159,6 +164,7 @@ function RenderEducation(){
 }
 
 function RenderWorkExperience(){
+    ChangeFavicon("./assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/work_experience')
     .then(response => response.text())
     .then(body => {
@@ -178,6 +184,7 @@ function RenderWorkExperience(){
 }
 
 function RenderHobbies(){
+    ChangeFavicon("./assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/hobbies')
     .then(response => response.text())
     .then(body => {
@@ -194,6 +201,7 @@ function RenderHobbies(){
 }
 
 function RenderContact(){
+    ChangeFavicon("./assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/contact')
     .then(response => response.text())
     .then(body => {
@@ -209,6 +217,17 @@ function RenderContact(){
         }
        document.getElementById('content').replaceChildren(info_list);
     })
+}
+
+// https://stackoverflow.com/questions/260857/changing-website-favicon-dynamically
+function ChangeFavicon(imagePath){
+    var link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+    }
+    link.href = imagePath;
 }
 
 // Set homepage to show intro text

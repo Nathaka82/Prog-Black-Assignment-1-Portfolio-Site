@@ -99,6 +99,16 @@
         "images": ["./assets/images/infini_card.png"],
         "content": ".txt",
         "tags": ["unity", "c#", "video game", "gamejam", "durhack", "24 hours"]
+      },
+      {
+        "id": 2,
+        "title": "Power Plant Peril",
+        "description": "Work to stop the powerplant from exploding. GameDev Insiders Jam #1 2020.",
+        "github": "",
+        "links": ["https://nathanielh03.itch.io/power-plant-peril"],
+        "images": ["./assets/images/PowerPlantPeril/title.png", "./assets/images/PowerPlantPeril/card.png"],
+        "content": ".txt",
+        "tags": ["48 hours", "unity", "c#", "video game", "gamejam"]
       }
     ]
   }

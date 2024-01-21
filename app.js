@@ -12,7 +12,6 @@ app.get('/intro', function(req, resp){
 
 app.get('/projects/list', function(req, resp){
     let search = req.query.search;
-    console.log(search);
     if (search == undefined || search == "-1")
     {
         resp.send(data["projects"]);
@@ -21,9 +20,6 @@ app.get('/projects/list', function(req, resp){
         let projects = [];
         let tags = search.toLowerCase().split(/\s*,\s*/);
         data.projects.forEach(project => {
-            console.log(tags)
-            console.log(project.tags)
-            console.log(project.tags.some(tag => tags.includes(tag)))
             // https://www.geeksforgeeks.org/how-to-find-if-two-arrays-contain-any-common-item-in-javascript/
             if(project.tags.some(tag => tags.includes(tag))){
                 projects.push(project);
@@ -49,7 +45,6 @@ app.get('/projects/tags', function(req, resp){
     let distinct = [...new Set(tags)];
     resp.send(distinct);
 })
-
 
 app.get('/cv/skills', function(req, resp){
     resp.send(data.cv.skills)
