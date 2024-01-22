@@ -4,10 +4,10 @@
   "description": "A single page web-app to display information about me and work i've done in the past.",
   "main": "index.js",
   "scripts": {
-    "test:dev": "jest",
-    "start:dev": "nodemon server.js",
-    "start:prod": "node server.js",
-    "pretest:dev": "eslint server.js"
+    "test": "jest",
+    "start-dev": "nodemon server.js",
+    "start": "node server.js",
+    "pretest": "eslint server.js"
   },
   "author": "nathanielh2511@gmail.com",
   "license": "MIT",
