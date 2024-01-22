@@ -1,5 +1,3 @@
-// MULTER
-
 const project_form = document.getElementById("project_form");
 
 // https://github.com/stevenaeola/progblack_2324/blob/main/gordonramsay/client/fact-submit.js
@@ -25,8 +23,13 @@ function SearchProjects(){
     RenderProjects(document.getElementById('project_search').value.toString());
 }
 
+function RenderError(code){
+    document.getElementById('title_text').innerText = `Error: ${code}`;
+    document.getElementById('content').innerHTML=`<p style="width:50%; text-align:center; margin:auto">There was a problem fetching your content!</p>`;
+}
+
 function RenderHome(){
-    ChangeFavicon("./assets/images/favicon.ico");
+    ChangeFavicon("assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/intro')
     .then(response => response.text())
     .then(body => {
@@ -37,7 +40,13 @@ function RenderHome(){
 
 function RenderProject(id){
     fetch(`http://127.0.0.1:8080/projects/project?id=${id}`)
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) {
+            RenderError(response.status);
+            return;
+        }
+        return response.text();
+    })
     .then(body => {
         const project = JSON.parse(body);
         ChangeFavicon(project.images[0]);
@@ -69,9 +78,15 @@ function RenderProject(id){
 }
 
 function RenderProjects(search = -1){
-    ChangeFavicon("./assets/images/favicon.ico");
+    ChangeFavicon("assets/images/favicon.ico");
     fetch(`http://127.0.0.1:8080/projects/list?search=${encodeURIComponent(search)}`)
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) {
+            RenderError(response.status);
+            return;
+        }
+        return response.text();
+    })
     .then(body => {
         document.getElementById('title_text').innerText = "Projects:";
     const projects = JSON.parse(body)
@@ -107,7 +122,7 @@ function RenderProjects(search = -1){
     card.setAttribute("class", "card col-sm-4");
     card.setAttribute("style", "height: 26rem; width: 18rem; margin: 5px auto;");
     card.innerHTML = `
-        <img class="card-img-top" src="./assets/images/new_project_card.png" alt="Card image cap">
+        <img class="card-img-top" src="assets/images/new_project_card.png" alt="Card image cap">
         <div class="card-body" style="text-align:center">
             <h5 class="card-title">New Project</h5>
             <br>
@@ -121,7 +136,7 @@ function RenderProjects(search = -1){
 }
 
 function RenderSkills(){
-    ChangeFavicon("./assets/images/favicon.ico");
+    ChangeFavicon("assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/skills')
     .then(response => response.text())
     .then(body => {
@@ -138,7 +153,7 @@ function RenderSkills(){
 }
 
 function RenderEducation(){
-    ChangeFavicon("./assets/images/favicon.ico");
+    ChangeFavicon("assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/education')
     .then(response => response.text())
     .then(body => {
@@ -164,7 +179,7 @@ function RenderEducation(){
 }
 
 function RenderWorkExperience(){
-    ChangeFavicon("./assets/images/favicon.ico");
+    ChangeFavicon("assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/work_experience')
     .then(response => response.text())
     .then(body => {
@@ -184,7 +199,7 @@ function RenderWorkExperience(){
 }
 
 function RenderHobbies(){
-    ChangeFavicon("./assets/images/favicon.ico");
+    ChangeFavicon("assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/hobbies')
     .then(response => response.text())
     .then(body => {
@@ -201,7 +216,7 @@ function RenderHobbies(){
 }
 
 function RenderContact(){
-    ChangeFavicon("./assets/images/favicon.ico");
+    ChangeFavicon("assets/images/favicon.ico");
     fetch('http://127.0.0.1:8080/cv/contact')
     .then(response => response.text())
     .then(body => {
