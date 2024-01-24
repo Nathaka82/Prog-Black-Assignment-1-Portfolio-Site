@@ -87,7 +87,6 @@
         "github": "https://github.com/Nathaka82",
         "links": ["https://www.youtube.com/watch?v=xW8skO7MFYw", "https://lodev.org/cgtutor/raycasting.html"],
         "images": ["./assets/images/ascii_card.png"],
-        "content": ".txt",
         "tags": ["c#", "console application", "video game", "visual studio"]
       },
       {
@@ -97,7 +96,6 @@
         "github": "https://github.com/Nathaka82/Durhack-2023",
         "links": ["https://durhack.com/", "https://devpost.com/software/infini-train"],
         "images": ["./assets/images/infini_card.png"],
-        "content": ".txt",
         "tags": ["unity", "c#", "video game", "gamejam", "durhack", "24 hours"]
       },
       {
@@ -107,7 +105,6 @@
         "github": "",
         "links": ["https://nathanielh03.itch.io/power-plant-peril"],
         "images": ["./assets/images/PowerPlantPeril/title.png", "./assets/images/PowerPlantPeril/card.png"],
-        "content": ".txt",
         "tags": ["48 hours", "unity", "c#", "video game", "gamejam"]
       }
     ]
