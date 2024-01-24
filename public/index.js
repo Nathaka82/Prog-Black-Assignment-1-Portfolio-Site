@@ -96,7 +96,7 @@ async function RenderProject (id) {
 
 async function RenderProjects (search) {
     let endpoint = 'http://127.0.0.1:8080/projects/list';
-    if (search !== undefined && search != "") {
+    if (search !== undefined && search !== '') {
         endpoint = `http://127.0.0.1:8080/projects/list?search=${encodeURIComponent(search)}`;
     }
 

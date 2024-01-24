@@ -101,7 +101,7 @@
       {
         "id": 2,
         "title": "Power Plant Peril",
-        "description": "Work to stop the powerplant from exploding. GameDev Insiders Jam #1 2020.",
+        "description": "Work to stop the power plant from exploding. GameDev Insiders Jam #1 2020.",
         "github": "",
         "links": ["https://nathanielh03.itch.io/power-plant-peril"],
         "images": ["./assets/images/PowerPlantPeril/title.png", "./assets/images/PowerPlantPeril/card.png"],

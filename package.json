@@ -7,7 +7,7 @@
     "test": "jest",
     "start-dev": "nodemon server.js",
     "start": "node server.js",
-    "pretest": "eslint server.js app.js index.js"
+    "pretest": "eslint --fix server.js app.js ./public/index.js"
   },
   "author": "nathanielh2511@gmail.com",
   "license": "MIT",

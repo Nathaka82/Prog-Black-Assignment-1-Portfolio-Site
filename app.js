@@ -13,7 +13,6 @@ app.get('/intro', function (req, resp) {
 
 app.get('/projects/list', function (req, resp) {
     const search = req.query.search;
-    console.log(search);
     if (search === undefined) {
         resp.send(data.projects);
     } else if (search.length > 0) {
@@ -71,20 +70,21 @@ app.get('/cv/contact', function (req, resp) {
     resp.send(data.cv.contact);
 });
 
-app.post("/projects/create", function(req, resp){
-    if (req.body === undefined){
-        resp.sendStatus(501);
-        return
-    } 
-    let project = {
-        "id": data.projects.slice(-1)[0].id + 1,
-        "title": req.body.title,
-        "description": req.body.description,
-        "github": req.body.github,
-        "links": [],
-        "images": [path.join("assets", "images", "StockBackgrounds", `${Math.floor(Math.random() * 5) + 1}.jpg`)],
-        "content": ".txt",
-        "tags": req.body.tags.toLowerCase().split(/\s*,\s*/)
+app.post('/projects/create', function (req, resp) {
+    // eslint-disable-next-line eqeqeq
+    if (Object.keys(req.body).sort().toString() !== ['title', 'description', 'github', 'tags'].sort().toString()) {
+        resp.sendStatus(400);
+        return;
+    }
+    const project = {
+        id: data.projects.slice(-1)[0].id + 1,
+        title: req.body.title,
+        description: req.body.description,
+        github: req.body.github,
+        links: [],
+        images: [path.join('assets', 'images', 'StockBackgrounds', `${Math.floor(Math.random() * 5) + 1}.jpg`)],
+        content: '.txt',
+        tags: req.body.tags.toLowerCase().split(/\s*,\s*/)
     };
     data.projects.push(project);
     resp.sendStatus(200);
