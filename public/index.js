@@ -1,5 +1,3 @@
-const { link } = require("../app");
-
 /* eslint-disable no-unused-vars */
 const projectForm = document.getElementById('project_form');
 
