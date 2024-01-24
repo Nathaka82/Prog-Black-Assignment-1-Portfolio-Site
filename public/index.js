@@ -93,7 +93,7 @@ async function RenderProject(id){
     document.getElementById('content').replaceChildren(row);
 }
 
-async function RenderProjects(search = -1){
+async function RenderProjects(search = ""){
     ChangeFavicon("assets/images/favicon.ico");
     let response = {};
     try {
@@ -296,6 +296,3 @@ function ChangeFavicon(imagePath){
     }
     link.href = imagePath;
 }
-
-// Set homepage to show intro text
-RenderHome();

@@ -74,6 +74,10 @@ app.get('/cv/contact', function(req, resp){
 })
 
 app.post("/projects/create", function(req, resp){
+    if (req.query == undefined){
+        resp.sendStatus(501);
+        return
+    } 
     let project = {
         "id": data.projects.slice(-1)[0].id + 1,
         "title": req.body.title,

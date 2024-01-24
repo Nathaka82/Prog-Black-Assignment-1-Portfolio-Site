@@ -15,37 +15,74 @@ describe('Test express server (Projects)', () => {
     .get('/projects/list')
     .expect(200);
   });
+  test('GET /projects/list returns JSON', () => {
+    return request(app)
+    .get('/projects/list')
+    .expect('Content-type', /json/);
+  });
+
   test('GET /projects/project (id = 0) succeeds', () => {
     return request(app)
     .get('/projects/project?id=0')
     .expect(200);
   });
+  test('GET /projects/project (id = 0) returns JSON', () => {
+    return request(app)
+    .get('/projects/project?id=0')
+    .expect('Content-type', /json/);
+  });
+
   test('GET /projects/project (id = 1) succeeds', () => {
     return request(app)
     .get('/projects/project?id=1')
     .expect(200);
   });
+  test('GET /projects/project (id = 1) returns JSON', () => {
+    return request(app)
+    .get('/projects/project?id=1')
+    .expect('Content-type', /json/);
+  });
+
   test('GET /projects/project (id = -1) fails', () => {
     return request(app)
     .get('/projects/project?id=-1')
     .expect(404);
   });
+  test('GET /projects/project (id = -1) returns Text', () => {
+    return request(app)
+    .get('/projects/project?id=-1')
+    .expect('Content-type', /text/);
+  });
+
   test('GET /projects/project (id = "abc") fails', () => {
     return request(app)
     .get('/projects/project?id=abc')
     .expect(404);
   });
+  test('GET /projects/project (id = "abc") returns Text', () => {
+    return request(app)
+    .get('/projects/project?id="abc"')
+    .expect('Content-type', /text/);
+  });
+
   test('GET /projects/tags succeeds', () => {
     return request(app)
     .get('/projects/tags')
     .expect(200);
   });
+  test('GET /projects/tags returns JSON', () => {
+    return request(app)
+    .get('/projects/tags')
+    .expect('Content-type', /json/);
+  });
 
-  // test('GET /projects/create succeeds', () => {
-  //   return request(app)
-  //   .post('/projects/create')
-  //   .expect(200);
-  // });
+  test('POST /projects/create succeeds', () => {
+    const data = new URLSearchParams({title: "1234", description: "1234", github: " ", tags: "a,b,c"}).toString();
+    return request(app)
+    .post('/projects/create')
+    .send(data)
+    .expect(200);
+  });
 });
 
 describe('Test express server (CV)', () => {
