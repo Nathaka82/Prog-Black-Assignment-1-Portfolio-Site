@@ -8,7 +8,6 @@ Returns a JSON object representing a project.
 | id [required] | int  | Tells the server which project to return.|
 
 ### Example code
-#### No parameter:
 ```js
 let response = await fetch("http://127.0.0.1:8080/projects/project?id=0");
 console.log(response.json());
