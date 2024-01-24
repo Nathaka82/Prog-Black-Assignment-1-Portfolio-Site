@@ -108,7 +108,7 @@ describe('Test express server (Projects)', () => {
 
   // Create (Valid Body)
   test('POST /projects/create with valid body succeeds', () => {
-    const data = new URLSearchParams({ title: 'Test Project', description: 'This is a test!', github: 'http://nathanielhughes.co.uk', tags: 'test,nathaniel,js,coursework' }).toString();
+    const data = new URLSearchParams({ title: 'Test Project', description: 'This is a test!', github: 'http://test.co.uk', tags: 'test,john,js,coursework' }).toString();
     return request(app)
     .post('/projects/create')
     .send(data)
@@ -120,21 +120,21 @@ describe('Test express server (Projects)', () => {
     .expect(400);
   });
   test('POST /projects/create with missing title returns 400', () => {
-    const data = new URLSearchParams({ description: 'This is a test!', github: 'http://nathanielhughes.co.uk', tags: 'test,nathaniel,js,coursework' }).toString();
+    const data = new URLSearchParams({ description: 'This is a test!', github: 'http://test.co.uk', tags: 'test,john,js,coursework' }).toString();
     return request(app)
     .post('/projects/create')
     .send(data)
     .expect(400);
   });
   test('POST /projects/create with missing description returns 400', () => {
-    const data = new URLSearchParams({ title: 'Test Project', github: 'http://nathanielhughes.co.uk', tags: 'test,nathaniel,js,coursework' }).toString();
+    const data = new URLSearchParams({ title: 'Test Project', github: 'http://test.co.uk', tags: 'test,john,js,coursework' }).toString();
     return request(app)
     .post('/projects/create')
     .send(data)
     .expect(400);
   });
   test('POST /projects/create with invalid body fails', () => {
-    const data = new URLSearchParams({ ti71e: 'Test Project', D3scr1pt1on: 'This is a test!', hubgit: 'http://nathanielhughes.co.uk', tagsss: 'test,nathaniel,js,coursework' }).toString();
+    const data = new URLSearchParams({ ti71e: 'Test Project', D3scr1pt1on: 'This is a test!', hubgit: 'http://test.co.uk', tagsss: 'test,john,js,coursework' }).toString();
     return request(app)
     .post('/projects/create')
     .send(data)

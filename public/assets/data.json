@@ -1,9 +1,9 @@
 {
-    "intro": "Hi, my name is Nathaniel Hughes, I am a 20 year old student currently studying Computer Science at Durham University. We were tasked to create a single page website for some coursework so I decided to make myself a website to host my CV & portfolio.",
+    "intro": "Hi, my name is John Smith, I am a 19 year old student currently studying Computer Science at Durham University. We were tasked to create a single page website for some coursework so I decided to make a website to host a CV & portfolio for myself. Note: All personal data has been randomly created.",
     "cv": {
-      "name": "Nathaniel Luke Hughes",
-      "age": 20,
-      "dob": "2003-11-25T09:00:00.000Z",
+      "name": "John Smith",
+      "age": 19,
+      "dob": "2004-05-12T09:00:00.000Z",
       "skills": [
         "Fast Learner",
         "Hard Working",
@@ -12,7 +12,7 @@
       "education": [
         {
           "level": "GCSE",
-          "school": "Clitheroe Royal Grammar School",
+          "school": "Generic Highschool",
           "board": "AQA",
           "results": {
             "mathematics": 9,
@@ -29,7 +29,7 @@
         },
         {
           "level": "A-Level",
-          "school": "Clitheroe Royal Grammar School Sixthform",
+          "school": "Generic Sixthform",
           "board": "AQA",
           "results": {
             "mathematics": "A*",
@@ -47,19 +47,19 @@
       ],
       "work_experience" : [
       {
-        "company": "AMRC North West",
+        "company": "Research Inc",
         "title": "Assistant Project Engineer",
         "duration": "9 Months",
         "part-time": false
       },
       {
-        "company": "Durham Univeristy Spacefight Society",
+        "company": "DU Soc",
         "title": "Website Team",
         "duration": "2 Months",
         "part-time": true
       },
       {
-        "company": "Halilit",
+        "company": "Warehouse inc",
         "title": "Warehouse Assistant",
         "duration": "1 Year",
         "part-time": true
@@ -75,8 +75,8 @@
         "Calisthenics"
       ],
       "contact":{
-        "mobile": "+44 7936076981",
-        "email": "nathanielh2511@gmail.com"
+        "mobile": "+44 1234567890",
+        "email": "example@gmail.com"
       }
     },
     "projects": [

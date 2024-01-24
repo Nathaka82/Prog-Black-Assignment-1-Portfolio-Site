@@ -1,3 +1,5 @@
+const { link } = require("../app");
+
 /* eslint-disable no-unused-vars */
 const projectForm = document.getElementById('project_form');
 
@@ -48,7 +50,7 @@ async function RenderHome () {
         RenderError(response.status);
         return;
     }
-    document.getElementById('title_text').innerText = "Nathaniel's Portfolio";
+    document.getElementById('title_text').innerText = "John's Portfolio";
     document.getElementById('content').innerHTML = `<p style="width:50%; text-align:center; margin:auto">${await response.text()}</p>`;
 }
 
@@ -79,6 +81,13 @@ async function RenderProject (id) {
     project.tags.forEach(tag => {
         tags += `<span class="badge text-bg-secondary">${tag}</span>\n`;
     });
+    console.log(project.links);
+    const links = document.createElement('ul');
+    project.links.forEach(link => {
+        const newLink = document.createElement('li');
+        newLink.innerHTML += `<a href=${link}>${link}</a>`;
+        links.appendChild(newLink);
+    });
     content.innerHTML =
     `
         <h3>${project.title}</h3>
@@ -86,9 +95,11 @@ async function RenderProject (id) {
         <br>
         ${tags}
     `;
+    content.appendChild(links);
     project.images.forEach(image => {
         images.innerHTML += `<img src=${image} alt="project image" style="margin:auto; padding:5px; max-width: 100%; height: auto;"/>`;
     });
+
     row.appendChild(content);
     row.appendChild(images);
     document.getElementById('content').replaceChildren(row);

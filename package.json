@@ -9,7 +9,7 @@
     "start": "node server.js",
     "pretest": "eslint --fix server.js app.js ./public/index.js"
   },
-  "author": "nathanielh2511@gmail.com",
+  "author": "wfwf87@durham.ac.uk",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
